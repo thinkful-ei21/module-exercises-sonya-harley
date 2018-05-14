@@ -19,9 +19,23 @@ const store = (function () {
       console.log(`Cannot add item:${e.message}`);
     }
   };
+  const findAndToggleChecked = function(id) {
+    const toggleItem = this.findById(id);
+    toggleItem.checked = !toggleItem.checked;
+  };
+
+  const findAndUpdateName = function(id, newName) {
+    try {
+      Item.validateName(newName);
+      this.findById(id).name = newName;
+    } catch(e) {
+      console.log(`Cannot update name:${e.message}`);
+    }
+  };
 
   return {
-    items, hideCheckedItems, searchTerm, findById, addItem
+    items, hideCheckedItems, searchTerm, findById, addItem, findAndToggleChecked,
+    findAndUpdateName
   };
 
 }() );

@@ -75,8 +75,7 @@ const shoppingList = (function(){
   }
   
   function toggleCheckedForListItem(id) {
-    const foundItem = store.items.find(item => item.id === id);
-    foundItem.checked = !foundItem.checked;
+    store.findAndToggleChecked(id);
   }
   
   
@@ -100,8 +99,7 @@ const shoppingList = (function(){
   }
   
   function editListItemName(id, itemName) {
-    const item = store.items.find(item => item.id === id);
-    item.name = itemName;
+    store.findAndUpdateName(id, itemName);
   }
   
   function toggleCheckedItemsFilter() {
