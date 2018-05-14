@@ -94,8 +94,7 @@ const shoppingList = (function(){
   }
   
   function deleteListItem(id) {
-    const index = store.items.findIndex(item => item.id === id);
-    store.items.splice(index, 1);
+    store.findAndDelete(id);
   }
   
   function editListItemName(id, itemName) {
